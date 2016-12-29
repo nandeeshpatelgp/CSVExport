@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='css/dataTables.css'></link>
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="js/csvExport.js"></script>
+        <script type="text/javascript">
+        $(document).ready(foo);
+        function foo() {
+            var tableData = [{
+                column1 : '00',
+                column2 : '01',
+                column3 : '02',
+                column4 : '03',
+                column5 : '04'
+            },{
+                column1 : '10',
+                column2 : '11',
+                column3 : '12',
+                column4 : '13',
+                column5 : '14'
+            },{
+                column1 : '20',
+                column2 : '21',
+                column3 : '22',
+                column4 : '23',
+                column5 : '24'
+            },{
+                column1 : '30',
+                column2 : '31',
+                column3 : '32',
+                column4 : '33',
+                column5 : '34'
+            },{
+                column1 : '40',
+                column2 : '41',
+                column3 : '42',
+                column4 : '43',
+                column5 : '44'
+            }];
+            var $table = $(".testTable").dataTable({
+                sDom : "tpr",
+                bPaginate : false,
+                aaData : tableData,
+                aoColumns : [{
+                    'sTitle' : 'COLUMN1',
+                    'mData'  : 'column1',
+                    'sDefaultContent' : ''
+                },{
+                    'sTitle' : 'COLUMN2',
+                    'mData'  : 'column2',
+                    'sDefaultContent' : ''
+                },{
+                    'sTitle' : 'COLUMN3',
+                    'mData'  : 'column3',
+                    'sDefaultContent' : ''
+                },{
+                    'sTitle' : 'COLUMN4',
+                    'mData'  : 'column4',
+                    'sDefaultContent' : ''
+                },{
+                    'sTitle' : 'COLUMN5',
+                    'mData'  : 'column5',
+                    'sDefaultContent' : ''
+                }]
+            });
+            $table.csvexport({
+                fileName : "testExport"
+            });
+        };
+        </script>
+    </head>
+    <body>
+        <table class="testTable display"></table>
+    </body>
+</html>
